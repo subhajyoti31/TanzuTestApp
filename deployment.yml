@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      component: frontend-container
+  template:
+    metadata: 
+      labels:
+        component: frontend-container
+    spec:
+      containers:
+        - name: demoapp
+          image: tanzuacrdemo.azurecr.io/utdtest:latest
+          imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+        - name: acr-satya   
+          ports:
+            - containerPort: 3000

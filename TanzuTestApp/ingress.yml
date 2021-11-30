@@ -1,0 +1,18 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: frontend-ingress
+    namespace: demo-app
+    #annotations:
+    #    cert-manager.io/cluster-issuer: letsencrypt-contour-cluster-issuer
+    #    ingress.kubernetes.io/force-ssl-redirect: "true"
+    #    kubernetes.io/ingress.class: contour
+    #    kubernetes.io/tls-acme: "true"
+spec:
+    rules:
+    - http:
+        paths:
+        #- path: /api
+        - backend:
+            serviceName: frontend-svc
+            servicePort: 3000

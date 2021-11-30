@@ -1,0 +1,16 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+    labels:
+        app: frontend
+        service: frontend-svc
+    name: frontend-svc
+spec:
+    ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+      name: http-frontend
+    selector:
+        app: frontend
+    type: ClusterIP

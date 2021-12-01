@@ -8,17 +8,17 @@ spec:
   replicas: 1
   selector: 
     matchLabels:
-      component: frontend-container
+      run: frontend
   template:
     metadata: 
       labels:
-        component: frontend-container
+        run: frontend
     spec:
       containers:
         - name: demoapp
           image: tanzuacrdemo.azurecr.io/utdtest:latest
           imagePullPolicy: IfNotPresent
-      imagePullSecrets:
-        - name: acr-satya   
           ports:
-            - containerPort: 3000
+          - containerPort: 8080
+      imagePullSecrets:
+        - name: acr-satya

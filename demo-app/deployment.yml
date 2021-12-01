@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+          image: tanzuacrdemo.azurecr.io/utdtest:latest
           ports:
           - containerPort: 80
-      #imagePullSecrets:
-      #  - name: acr-satya
+      imagePullSecrets:
+        - name: acr-satya

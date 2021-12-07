@@ -4,15 +4,18 @@ metadata:
   name: frontend-deployment
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
   template:
     metadata: 
       labels:
         app: demo-app
     spec:
       containers:
-      - name: frontend
-        image: tanzuacrdemo.azurecr.io/utdtest:latest
+      - name: demo-app
+        image: tanzuacrdemo.azurecr.io/testdemoapp:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
-        - name: acr-satya
+      - name: acr-satya

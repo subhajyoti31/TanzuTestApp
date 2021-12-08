@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: demoapp-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-app
+      app: demoapp
   template:
     metadata: 
       labels:
-        app: demo-app
+        app: demoapp
     spec:
       containers:
-      - name: demo-app
-        image: tanzuacrdemo.azurecr.io/testdemoapp:latest
+      - name: frontend
+        image: tanzucodedept.azurecr.io/demos:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
       imagePullSecrets:
-      - name: acr-satya
+      - name: acr-satya-amd

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapp-svc
+spec:
+  ports: 
+  - port: 89
+    targetPort: 80
+  selector:
+    app: demoapp
